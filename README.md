@@ -18,6 +18,13 @@ Ejecutar la demo, solo disponible en linux.
 ./dist/juego
 ```
 
+Instalar pytest
+
+```
+pip3 install pytest
+```
+
+
 Ejecutar la test suite
 
 ```
