@@ -12,10 +12,17 @@ Entrar en la carpeta del proyecto
 cd object_wars_estudiantes/
 ```
 
-Ejecutar la demo, solo disponible en linux.
+Ejecutar la demo, (linux).
 
 ```
 ./dist/juego
+```
+
+
+Ejecutar la demo, (windows).
+
+```
+dist\juego.exe
 ```
 
 Instalar pytest
@@ -35,5 +42,11 @@ Comprobar la nota actual
 
 ```
 python3 nota.py
+```
+
+Ejecutar vuestra versión del juego 
+
+```
+python3 juego.py
 ```
 
