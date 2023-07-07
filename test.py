@@ -176,8 +176,18 @@ def check_same_output(path_orginial, path_test, create_output):
     if create_output:
         shutil.copy(path_test, path_orginial)
         pytest.fail(f"Fichero {path_orginial} creado")
-    assert(filecmp.cmp(path_orginial,
-                       path_test, shallow=False))
+    
+    
+    with open(path_orginial) as file_1:
+        file_1_text = file_1.readlines()
+ 
+    with open(path_test) as file_2:
+        file_2_text = file_2.readlines()
+    
+    assert len(file_1_text) == len(file_2_text)
+    for line1, line2 in zip(file_1_text, file_2_text):
+        assert line1 == line2
+
 
 
 class Test_funcionalidad():
@@ -185,7 +195,7 @@ class Test_funcionalidad():
     def test_comprar_soldado(self, monkeypatch):
         sol_file_path = 'test/test_comprar_soldado.out'
         test_path = 'test/test.out'
-        with open('test/test.out', 'w', encoding="utf-8") as file:
+        with open('test/test.out', 'w') as file:
             sys.stdout = file
             Juego.mensaje_bienvenida()
             juego = Juego("Jugador1", "jugador2")
@@ -204,7 +214,7 @@ class Test_funcionalidad():
     def test_dinero_insuficiente(self, monkeypatch):
         sol_file_path = 'test/test_dinero_insuficiente.out'
         test_path = 'test/test.out'
-        with open('test/test.out', 'w', encoding="utf-8") as file:
+        with open('test/test.out', 'w') as file:
             sys.stdout = file
             Juego.mensaje_bienvenida()
             juego = Juego("Jugador1", "jugador2")
@@ -223,7 +233,7 @@ class Test_funcionalidad():
     def test_comprar_dos_soldados(self, monkeypatch):
         sol_file_path = 'test/test_comprar_dos_soldados.out'
         test_path = 'test/test.out'
-        with open(test_path, 'w', encoding="utf-8") as file:
+        with open(test_path, 'w') as file:
             sys.stdout = file
             Juego.mensaje_bienvenida()
             juego = Juego("Jugador1", "jugador2")
@@ -242,7 +252,7 @@ class Test_funcionalidad():
     def test_jugador_1_gana_partida(self, monkeypatch):
         sol_file_path = 'test/test_jugador_1_gana_partida.out'
         test_path = 'test/test.out'
-        with open(test_path, 'w', encoding="utf-8") as file:
+        with open(test_path, 'w') as file:
             sys.stdout = file
             Juego.mensaje_bienvenida()
             juego = Juego("Jugador1", "jugador2")
@@ -262,7 +272,7 @@ class Test_funcionalidad():
 
         sol_file_path = 'test/test_jugador_2_gana_partida.out'
         test_path = 'test/test.out'
-        with open(test_path, 'w', encoding="utf-8") as file:
+        with open(test_path, 'w') as file:
             sys.stdout = file
             Juego.mensaje_bienvenida()
             juego = Juego("Jugador1", "jugador2")
@@ -283,7 +293,7 @@ class Test_funcionalidad():
 
         sol_file_path = 'test/test_final.out'
         test_path = 'test/test.out'
-        with open(test_path, 'w', encoding="utf-8") as file:
+        with open(test_path, 'w') as file:
             sys.stdout = file
             Juego.mensaje_bienvenida()
             juego = Juego("Jugador1", "jugador2")
@@ -301,14 +311,15 @@ class Test_funcionalidad():
 
 
 class Test_usuario():
-    def test_integracion_a_implementar(self):
+
+    def test_a_implementar_unitario(self):
+        # Eliminar la siguiente linea
+        assert(False)
+        
+    def test_a_implementar_integracion(self):
         # Eliminar la siguiente linea
         assert(False)
 
-    def test_unitario_a_implementar(self):
-        # Eliminar la siguiente linea
-        assert(False)
-
-    def test_funcional_a_implementar(self):
+    def test_a_implementar_funcional(self):
         # Eliminar la siguiente linea
         assert(False)
