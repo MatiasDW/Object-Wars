@@ -1,4 +1,4 @@
-# object_wars_students
+# object_wars
 
 Instrucciones para descargar
 
