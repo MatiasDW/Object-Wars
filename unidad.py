@@ -7,20 +7,21 @@ class Unidad():
     """Clase abstracta que modela una unidad"""
 
     def __init__(self):
-        """Creadora del objecto Unidad"""
+        """Creadora del objeto Unidad"""
         pass
 
     def descansar(self):
-        """ Metodo abastracto, restaura puntos de vida a la unidad"""
+        """Restaura puntos de vida a la unidad"""
         pass
 
-    def atacar(self):
-        """Este metodo debe ser usado para consultar los puntos de ataque, en caso de que la unidad este atacando"""
+    def atacar(self, unidad_enemiga):
+        """Consulta los puntos de ataque de la unidad y aplica bonificaciones"""
         pass
 
 
-class Soldado():
+class Soldado(Unidad):
     """Unidad soldado, tiene un coste de 5 monedas, tiene 3 puntos de ataque y restaura 5 puntos de vida al descansar"""
+
      def __init__(self):
         super().__init__()
         self.coste = 5
@@ -30,31 +31,53 @@ class Soldado():
     def descansar(self):
         self.puntos_vida += 5
 
+    def atacar(self, unidad_enemiga):
+        bonus = self._calcular_bonus(unidad_enemiga)
+        return int(self.puntos_ataque * bonus)
 
-class Arquero():
-    """ Unidad Arquero, tiene un coste de 6 monedas, tiene 8 puntos de ataque y restaura 2 puntos de vida al decansar
+    def _calcular_bonus(self, unidad_enemiga):
+        if isinstance(unidad_enemiga, Arquero):
+            return 1.5
+        elif isinstance(unidad_enemiga, Caballero):
+            return 0.5
+        else:
+            return 1.0
+
+
+class Arquero(Unidad):
+    """Unidad Arquero, tiene un coste de 6 monedas, tiene 8 puntos de ataque y restaura 2 puntos de vida al descansar.
     Los arqueros atacan 1 de cada 2 veces ya que deben recargar, empiezan la partida sin estar preparados para atacar"""
+
     def __init__(self):
-            super().__init__()
-            self.coste = 6
-            self.puntos_vida = MAX_VIDA
-            self.puntos_ataque = 8
+        super().__init__()
+        self.coste = 6
+        self.puntos_vida = MAX_VIDA
+        self.puntos_ataque = 8
+        self.preparado = False
+
+    def descansar(self):
+        self.puntos_vida += 2
+        self.preparado = True
+
+    def atacar(self, unidad_enemiga):
+        if self.preparado:
             self.preparado = False
+            bonus = self._calcular_bonus(unidad_enemiga)
+            return int(self.puntos_ataque * bonus)
+        else:
+            return 0
 
-        def descansar(self):
-            self.puntos_vida += 2
-            self.preparado = True
+    def _calcular_bonus(self, unidad_enemiga):
+        if isinstance(unidad_enemiga, Caballero):
+            return 1.5
+        elif isinstance(unidad_enemiga, Soldado) or isinstance(unidad_enemiga, Arquero):
+            return 1.0
 
-        def atacar(self):
-            if self.preparado:
-                self.preparado = False
-                return self.puntos_ataque
-            else:
-                return 0
 
-class Caballero():
-    """ Unidad Caballero, tiene un coste de 9 monedas, tiene 5 puntos de ataque, y al descansar no restaura puntos de vida"""
-     def __init__(self):
+class Caballero(Unidad):
+    """Unidad Caballero, tiene un coste de 9 monedas, tiene 5 puntos de ataque y no restaura puntos de vida al descansar"""
+
+    def __init__(self):
         super().__init__()
         self.coste = 9
         self.puntos_vida = MAX_VIDA
@@ -64,5 +87,14 @@ class Caballero():
         # Los caballeros no restauran puntos de vida al descansar
         pass
 
-    def atacar(self):
-        return self.puntos_ataque
+    def atacar(self, unidad_enemiga):
+        bonus = self._calcular_bonus(unidad_enemiga)
+        return int(self.puntos_ataque * bonus)
+
+    def _calcular_bonus(self, unidad_enemiga):
+        if isinstance(unidad_enemiga, Soldado):
+            return 1.5
+        elif isinstance(unidad_enemiga, Arquero):
+            return 1.5
+        elif isinstance(unidad_enemiga, Caballero):
+            return 1.0
