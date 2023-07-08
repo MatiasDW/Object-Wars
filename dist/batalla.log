@@ -1,87 +1,42 @@
 Batalla número: 0
-combate número: 0
-caballero:  7
-soldado:  2.5
-combate número: 1
-caballero:  4
-soldado:  -5.0
-combate número: 2
-caballero:  1
-soldado:  2.5
-combate número: 3
-caballero:  -2
-soldado:  -5.0
 Daño al jugador: 
 Daño al jugador: 
+El jugador jack recibe un ataque de soldado y le causa 3 puntos de daño
+El jugador jack recibe un ataque de soldado y le causa 3 puntos de daño
 Batalla número: 1
 combate número: 0
-soldado:  10
-arquero:  5.5
+soldado:  7
+soldado:  7
 combate número: 1
-soldado:  2
-arquero:  1.0
+soldado:  4
+soldado:  4
 combate número: 2
-soldado:  2
-arquero:  -3.5
+soldado:  1
+soldado:  1
+combate número: 3
+soldado:  -2
+soldado:  -2
 Daño al jugador: 
 Daño al jugador: 
-El jugador Jack recibe un ataque de soldado y le causa 3 puntos de daño
-El jugador Jack recibe un ataque de soldado y le causa 3 puntos de daño
+El jugador jack recibe un ataque de soldado y le causa 3 puntos de daño
+El jugador jack recibe un ataque de soldado y le causa 3 puntos de daño
+El jugador jack recibe un ataque de soldado y le causa 3 puntos de daño
 Batalla número: 2
 combate número: 0
 soldado:  7
-arquero:  5.5
+soldado:  7
 combate número: 1
-soldado:  -1
-arquero:  1.0
+soldado:  4
+soldado:  4
 combate número: 2
-soldado:  10
-arquero:  -3.5
-Daño al jugador: 
-Daño al jugador: 
-El jugador Jack recibe un ataque de soldado y le causa 3 puntos de daño
-El jugador Jack recibe un ataque de caballero y le causa 5 puntos de daño
-Batalla número: 3
-combate número: 0
-soldado:  2.5
-caballero:  7
-combate número: 1
-soldado:  -5.0
-caballero:  4
-combate número: 2
-caballero:  5
-caballero:  -1
+soldado:  1
+soldado:  1
 combate número: 3
-caballero:  0
-caballero:  5
-combate número: 4
-caballero:  5
-caballero:  0
+soldado:  -2
+soldado:  -2
 Daño al jugador: 
 Daño al jugador: 
-El jugador Jack recibe un ataque de caballero y le causa 5 puntos de daño
-Batalla número: 4
-combate número: 0
-caballero:  2
-soldado:  2.5
-combate número: 1
-caballero:  -1
-soldado:  -5.0
-combate número: 2
-arquero:  5.5
-soldado:  10
-combate número: 3
-arquero:  1.0
-soldado:  2
-combate número: 4
-arquero:  -3.5
-soldado:  2
-combate número: 5
-arquero:  5.5
-soldado:  2
-combate número: 6
-arquero:  1.0
-soldado:  -6
-Daño al jugador: 
-Daño al jugador: 
-El jugador Jack recibe un ataque de arquero y le causa 0 puntos de daño
+El jugador jack recibe un ataque de soldado y le causa 3 puntos de daño
+El jugador jack recibe un ataque de soldado y le causa 3 puntos de daño
+El jugador jack recibe un ataque de soldado y le causa 3 puntos de daño
+El jugador jack recibe un ataque de soldado y le causa 3 puntos de daño
