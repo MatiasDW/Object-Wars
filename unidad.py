@@ -22,20 +22,23 @@ class Unidad():
 class Soldado(Unidad):
     """Unidad soldado, tiene un coste de 5 monedas, tiene 3 puntos de ataque y restaura 5 puntos de vida al descansar"""
 
-     def __init__(self):
+    def __init__(self):
         super().__init__()
         self.coste = 5
         self.puntos_vida = MAX_VIDA
         self.puntos_ataque = 3
 
     def descansar(self):
+        """Restaura 5 puntos de vida al soldado"""
         self.puntos_vida += 5
 
     def atacar(self, unidad_enemiga):
+        """Calcula el daño que hace el soldado a la unidad enemiga"""
         bonus = self._calcular_bonus(unidad_enemiga)
         return int(self.puntos_ataque * bonus)
 
     def _calcular_bonus(self, unidad_enemiga):
+        """Calcula el bonus de ataque del soldado dependiendo del tipo de unidad enemiga"""
         if isinstance(unidad_enemiga, Arquero):
             return 1.5
         elif isinstance(unidad_enemiga, Caballero):
@@ -56,10 +59,12 @@ class Arquero(Unidad):
         self.preparado = False
 
     def descansar(self):
+        """Restaura 2 puntos de vida al arquero y lo prepara para atacar"""
         self.puntos_vida += 2
         self.preparado = True
 
     def atacar(self, unidad_enemiga):
+        """Calcula el daño que hace el arquero a la unidad enemiga si está preparado para atacar"""
         if self.preparado:
             self.preparado = False
             bonus = self._calcular_bonus(unidad_enemiga)
@@ -68,6 +73,7 @@ class Arquero(Unidad):
             return 0
 
     def _calcular_bonus(self, unidad_enemiga):
+        """Calcula el bonus de ataque del arquero dependiendo del tipo de unidad enemiga"""
         if isinstance(unidad_enemiga, Caballero):
             return 1.5
         elif isinstance(unidad_enemiga, Soldado) or isinstance(unidad_enemiga, Arquero):
@@ -88,13 +94,13 @@ class Caballero(Unidad):
         pass
 
     def atacar(self, unidad_enemiga):
+        """Calcula el daño que hace el caballero a la unidad enemiga"""
         bonus = self._calcular_bonus(unidad_enemiga)
         return int(self.puntos_ataque * bonus)
 
     def _calcular_bonus(self, unidad_enemiga):
-        if isinstance(unidad_enemiga, Soldado):
-            return 1.5
-        elif isinstance(unidad_enemiga, Arquero):
-            return 1.5
-        elif isinstance(unidad_enemiga, Caballero):
-            return 1.0
+       """Calcula el bonus de ataque del caballero dependiendo del tipo de unidad enemiga"""
+       if isinstance(unidad_enemiga, Soldado) or isinstance(unidad_enemiga, Arquero):
+           return 1.5
+       elif isinstance(unidad_enemiga, Caballero):
+           return 1.0

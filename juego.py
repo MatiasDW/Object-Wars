@@ -35,8 +35,8 @@ class Juego():
     def _turno(self, jugador):
     #Realiza el turno del jugador. Permite al jugador comprar unidades y finalizar su turno.
 
-    print(f"Turno de {jugador.nombre}")
-    print(f"Tienes {jugador.get_monedas()} monedas disponibles.")
+        print(f"Turno de {jugador.nombre}")
+        print(f"Tienes {jugador.get_monedas()} monedas disponibles.")
     
     while True:
         print("Elige una opción:")
@@ -51,7 +51,7 @@ class Juego():
         else:
             print("Opción inválida. Por favor, elige una opción válida.")
     
-    print(f"{jugador.nombre} ha finalizado su turno.")
+        print(f"{jugador.nombre} ha finalizado su turno.")
 
 
     def _comprar_unidad(self, jugador):
