@@ -78,6 +78,8 @@ class Arquero(Unidad):
             return 1.5
         elif isinstance(unidad_enemiga, Soldado) or isinstance(unidad_enemiga, Arquero):
             return 1.0
+        else:
+            return 1.0
 
 
 class Caballero(Unidad):

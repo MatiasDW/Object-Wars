@@ -45,3 +45,6 @@ class Jugador():
             self.monedas = value
         else:
             print("No se permiten monedas negativas.")
+    
+    def recibir_dano(self, puntos_dano):
+        self.puntos_vida -= puntos_dano
